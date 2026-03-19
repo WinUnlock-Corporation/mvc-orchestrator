@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript" src="../orc/dist/orc.all.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            Orchestrator.PageRegistration(PageIndex, { index: 1 }, { mode: 1 });
+            Orchestrator.PageComponentRegistration(PageIndexComponent1, { options: { } });
+            Orchestrator.PageComponentRegistration(PageIndexComponent2);
+            Orchestrator.PageRender(Orchestrator.OrchestratorViewMode.Update);
+
+            console.log("Get render value")
+            console.log(Orchestrator.GetOrchestratorInstanceValue("render"))
+        })
+
+        function TestRenderChange(){
+            Orchestrator.PageRender(Orchestrator.OrchestratorViewMode.Create)
+        }
+        function TestCallGetCustomComponent1(){
+            Orchestrator.CallMethod(PageIndexComponent1, "ComponentCustomMethodGet")
+        }
+        function TestCallSetCustomComponent1(){
+            Orchestrator.CallMethod(PageIndexComponent1, "ComponentCustomMethodSet")
+        }
+        function TestCallCustomComponent2(){
+            Orchestrator.CallMethod(PageIndexComponent2, "ComponentCustomMethod")
+        }
+    </script>
+</body>
+</html>

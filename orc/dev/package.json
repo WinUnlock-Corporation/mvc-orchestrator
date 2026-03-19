@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "strict": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "src"
+  ],
+  "dependencies": {
+    "ts-custom-error": "^3.3.1"
+  },
+  "devDependencies": {
+    "ts-patch": "^3.3.0"
+  }
+}
